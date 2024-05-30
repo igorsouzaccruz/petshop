@@ -10,12 +10,12 @@
 using System;
 using System.Reflection;
 
-[assembly: System.Reflection.AssemblyCompanyAttribute("Petshop")]
+[assembly: System.Reflection.AssemblyCompanyAttribute("PetShop")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+56d2e5fec3a80df75527412394e8370e0bd9a134")]
-[assembly: System.Reflection.AssemblyProductAttribute("Petshop")]
-[assembly: System.Reflection.AssemblyTitleAttribute("Petshop")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fd1b0410399692785374295c9ef6bd400a093c5e")]
+[assembly: System.Reflection.AssemblyProductAttribute("PetShop")]
+[assembly: System.Reflection.AssemblyTitleAttribute("PetShop")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
 
 // Gerado pela classe WriteCodeFragment do MSBuild.
