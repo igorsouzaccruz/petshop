@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Igor\\Desktop\\Web\\petshop\\back\\PetShop\\PetShop\\PetShop.csproj": {}
+    "C:\\Users\\Igor\\Desktop\\Web\\petshop\\back\\PetShop\\PetShop.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Igor\\Desktop\\Web\\petshop\\back\\PetShop\\PetShop\\PetShop.csproj": {
+    "C:\\Users\\Igor\\Desktop\\Web\\petshop\\back\\PetShop\\PetShop.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Igor\\Desktop\\Web\\petshop\\back\\PetShop\\PetShop\\PetShop.csproj",
+        "projectUniqueName": "C:\\Users\\Igor\\Desktop\\Web\\petshop\\back\\PetShop\\PetShop.csproj",
         "projectName": "PetShop",
-        "projectPath": "C:\\Users\\Igor\\Desktop\\Web\\petshop\\back\\PetShop\\PetShop\\PetShop.csproj",
+        "projectPath": "C:\\Users\\Igor\\Desktop\\Web\\petshop\\back\\PetShop\\PetShop.csproj",
         "packagesPath": "C:\\Users\\Igor\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Igor\\Desktop\\Web\\petshop\\back\\PetShop\\PetShop\\obj\\",
+        "outputPath": "C:\\Users\\Igor\\Desktop\\Web\\petshop\\back\\PetShop\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
