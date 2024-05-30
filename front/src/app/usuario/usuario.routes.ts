@@ -9,12 +9,12 @@ export default [
       {
         path: '',
         title: 'Usuario',
-        component: GrupoListagemComponent,
+        component: ListagemComponent,
       },
       {
         path: 'cadastrar',
         title: 'Cadastrar Usuario',
-        component: GrupoFormularioComponent,
+        component: FormularioComponent,
       },
     ],
   },
