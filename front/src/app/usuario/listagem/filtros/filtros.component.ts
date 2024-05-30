@@ -5,8 +5,6 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [],
   templateUrl: './filtros.component.html',
-  styleUrl: './filtros.component.scss'
+  styleUrl: './filtros.component.scss',
 })
-export class FiltrosComponent {
-
-}
+export class FiltrosComponent {}
