@@ -6,8 +6,14 @@ export const routes: Routes = [
     children: [
       {
         path: '',
-        redirectTo: 'login',
+        redirectTo: 'home',
         pathMatch: 'prefix',
+      },
+      {
+        path: 'home',
+        title: 'Home',
+        loadComponent: () =>
+          import('./home/home.component').then((c) => c.HomeComponent),
       },
       {
         path: 'login',
