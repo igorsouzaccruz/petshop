@@ -1,0 +1,61 @@
+*.swp
+*.*~
+project.lock.json
+.DS_Store
+*.pyc
+nupkg/
+
+# Visual Studio Code
+.vscode
+
+# User-specific files
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.rsuser
+
+# Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+build/
+bld/
+[Bb]in/
+[Oo]bj/
+[Oo]ut/
+msbuild.log
+msbuild.err
+msbuild.wrn
+
+# NuGet Packages
+*.nupkg
+# The packages folder can be ignored because of Package Restore
+**/[Pp]ackages/*
+# except build/, which is used as an MSBuild target.
+!**/[Pp]ackages/build/
+# Uncomment if necessary however generally it will be regenerated when needed
+#!**/[Pp]ackages/repositories.config
+# NuGet v3's project.json files produces more ignorable files
+*.nuget.props
+*.nuget.targets
+
+# Visual Studio 2015
+.vs/
+
+#Logs folder
+logs/*
+
+.idea/.idea.BeneficioCidadao/riderModule.iml
+.idea/.idea.BeneficioCidadao/.idea/workspace.xml
+.idea/.idea.BeneficioCidadao/.idea/vcs.xml
+.idea/.idea.BeneficioCidadao/.idea/misc.xml
+.idea/.idea.BeneficioCidadao/.idea/inspectionProfiles/Project_Default.xml
+.idea/.idea.BeneficioCidadao/.idea/indexLayout.xml
+.idea/.idea.BeneficioCidadao/.idea/encodings.xml
+.idea/.idea.BeneficioCidadao/.idea/.name
+.idea/.idea.BeneficioCidadao/.idea/contentModel.xml
+.idea/.idea.BeneficioCidadao/.idea/modules.xml
