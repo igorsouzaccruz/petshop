@@ -1,9 +1,18 @@
-﻿namespace PetShop.Models
+﻿using MongoDB.Bson;
+using MongoDB.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations;
+
+namespace PetShop.Models
 {
+    [Collection("usuarios")]
     public class Usuario
     {
-        public int Id { get; set; }
-        public required string Nome { get; set; }
-        public required string Cpf { get; set; }
+        public ObjectId Id { get; set; }
+
+        [Required(ErrorMessage ="Usuário necessita de um nome!")]
+        public string? Nome { get; set; }
+        public string? Cpf { get; set; }
+        public string? Senha { get; set; }
+        public string? Email { get; set; }
     }
 }

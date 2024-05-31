@@ -1,5 +1,8 @@
 using APICatalogo.Context;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+using PetShop.Models;
+using PetShop.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,7 +15,13 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddCors();
 
+var mongoDBSettings = builder.Configuration.GetSection("MongoDBSettings").Get<MongoDBSettings>();
+builder.Services.Configure<MongoDBSettings>(builder.Configuration.GetSection("MongoDBSettings"));
 
+builder.Services.AddDbContext<AppDbContext>(options =>
+options.UseMongoDB(mongoDBSettings.AltasURI ?? "", mongoDBSettings.DatabaseName ?? ""));
+
+builder.Services.AddScoped<IUsuarioService, UsuarioService>();
 
 var app = builder.Build();
 
