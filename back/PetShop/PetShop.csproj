@@ -12,12 +12,12 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="MongoDB.EntityFrameworkCore" Version="8.0.1" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Repository\" />
-    <Folder Include="Service\" />
+    <Folder Include="Repositories\" />
   </ItemGroup>
 
 </Project>
