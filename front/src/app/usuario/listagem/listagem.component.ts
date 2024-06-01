@@ -1,12 +1,19 @@
 import { Component, inject } from '@angular/core';
-import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {
+  FormBuilder,
+  FormGroup,
+  FormsModule,
+  ReactiveFormsModule,
+} from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
+import { MatIcon } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
+import { MatMenuModule } from '@angular/material/menu';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
-import { UsuarioService } from '../usuario.service';
+import { Router } from '@angular/router';
 import { Usuario } from '../../core/entities/usuario';
-
+import { UsuarioService } from '../usuario.service';
 
 @Component({
   selector: 'app-listagem',
@@ -18,15 +25,17 @@ import { Usuario } from '../../core/entities/usuario';
     ReactiveFormsModule,
     MatButtonModule,
     MatTableModule,
+    MatMenuModule,
+    MatIcon,
   ],
   templateUrl: './listagem.component.html',
-  styleUrl: './listagem.component.scss'
+  styleUrl: './listagem.component.scss',
 })
 export class ListagemComponent {
-
   formulario!: FormGroup;
   formBuilder = inject(FormBuilder);
   service = inject(UsuarioService);
+  router = inject(Router);
 
   public usuarios: Array<Usuario> = [];
 
@@ -71,7 +80,7 @@ export class ListagemComponent {
     },
   ];
 
-  mostrarColunasDinamicas = this.colunas.map((coluna) => coluna.def);
+  mostrarColunasDinamicas = ['id', 'nome', 'cpf', 'email', 'acoes'];
 
   public pesquisar() {
     this.service.buscar().subscribe((resultado) => {
@@ -86,6 +95,12 @@ export class ListagemComponent {
         this.fonteDados.data = [resultado];
       });
   }
+
+  editarUsuario(id: number) {
+    this.router.navigate([`/usuario/${id}`]);
+  }
+
+  deletarUsuario(usuario: Usuario) {}
 }
 
 export interface IColunas {
@@ -93,6 +108,3 @@ export interface IColunas {
   cabecalho: string;
   conteudo: any;
 }
-
-
-
