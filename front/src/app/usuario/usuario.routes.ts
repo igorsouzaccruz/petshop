@@ -14,7 +14,7 @@ export default [
         component: ListagemComponent,
       },
       {
-        path: 'cadastrar',
+        path: 'formulario',
         title: 'Cadastrar Usuario',
         component: FormularioComponent,
       },
