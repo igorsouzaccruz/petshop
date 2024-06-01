@@ -69,5 +69,15 @@ namespace PetShop.Services
         {
             return _context.Usuarios.FirstOrDefault(u => u.Id == id);
         }
+
+        public bool Login(LoginDto login)
+        {
+            var user = _context.Usuarios.FirstOrDefault(u => u.Email == login.Login && u.Senha == login.Senha);
+            if (user != null)
+            {
+                return true;
+            }
+            return false;
+        }
     }
 }

@@ -11,5 +11,6 @@ namespace PetShop.Services
         void AddUsuario(Usuario usuario);
         void UpdateUsuario(Usuario usuario);
         void DeleteUsuario(Usuario usuario);
+        bool Login(LoginDto login);
     }
 }
