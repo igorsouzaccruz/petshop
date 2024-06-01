@@ -65,27 +65,53 @@ namespace PetShop.Controllers
         }
 
         [HttpPut]
-        public ActionResult Put([FromBody] Usuario usuario)
+        public ActionResult Put([FromBody] UsuarioDto usuario)
         {
             if (usuario is null)
             {
                 return BadRequest();
             }
 
-            _usuarioService.UpdateUsuario(usuario);
+            var usuarioParaAtualizar = _usuarioService.GetUsuarioById(ObjectId.Parse(usuario.Id));
+
+            if (usuarioParaAtualizar is null)
+            {
+                return BadRequest();
+            }
+
+            usuarioParaAtualizar.Nome = usuario.Nome;
+            usuarioParaAtualizar.Cpf = usuario.Cpf;
+            usuarioParaAtualizar.Email = usuario.Email;
+            usuarioParaAtualizar.Senha = usuario.Senha;
+
+
+            _usuarioService.UpdateUsuario(usuarioParaAtualizar);
 
             return Ok();
         }
 
         [HttpDelete]
-        public ActionResult Delete([FromBody] Usuario usuario)
+        public ActionResult Delete([FromBody] UsuarioDto usuario)
         {
             if (usuario is null)
             {
                 return BadRequest();
             }
 
-            _usuarioService.DeleteUsuario(usuario);
+            var usuarioParaDeletar = _usuarioService.GetUsuarioById(ObjectId.Parse(usuario.Id));
+
+            if (usuarioParaDeletar is null)
+            {
+                return BadRequest();
+            }
+
+            usuarioParaDeletar.Nome = usuario.Nome;
+            usuarioParaDeletar.Cpf = usuario.Cpf;
+            usuarioParaDeletar.Email = usuario.Email;
+            usuarioParaDeletar.Senha = usuario.Senha;
+
+
+            _usuarioService.DeleteUsuario(usuarioParaDeletar);
 
             return Ok();
         }
