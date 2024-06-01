@@ -5,11 +5,13 @@ import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { UsuarioService } from '../usuario.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-formulario',
   standalone: true,
   imports: [
+    CommonModule,
     MatCardModule,
     FormsModule,
     MatFormFieldModule,
