@@ -1,1 +1,6 @@
-<router-outlet></router-outlet>
+<button mat-raised-button color="primary" (click)=" cadastrar()">{{cadastrando ? 'Ir para Listagem' :'Ir para Cadastro'}}</button>
+@if(cadastrando){
+<app-usuario></app-usuario>
+}@else {
+<app-listagem></app-listagem>
+}
