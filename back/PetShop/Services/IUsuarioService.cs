@@ -1,5 +1,4 @@
 ﻿using MongoDB.Bson;
-using PetShop.DTOs;
 using PetShop.Models;
 
 namespace PetShop.Services

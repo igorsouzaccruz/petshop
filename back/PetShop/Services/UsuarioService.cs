@@ -1,7 +1,6 @@
 ﻿using APICatalogo.Context;
 using Microsoft.EntityFrameworkCore;
 using MongoDB.Bson;
-using PetShop.DTOs;
 using PetShop.Models;
 
 namespace PetShop.Services
@@ -73,10 +72,12 @@ namespace PetShop.Services
         public bool Login(LoginDto login)
         {
             var user = _context.Usuarios.FirstOrDefault(u => u.Email == login.Login && u.Senha == login.Senha);
+
             if (user != null)
             {
                 return true;
             }
+
             return false;
         }
     }
