@@ -1,13 +1,15 @@
-import { ApplicationConfig } from '@angular/core';
+import { ApplicationConfig, importProvidersFrom } from '@angular/core';
 import { provideRouter, withHashLocation } from '@angular/router';
 
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { routes } from './app.routes';
-import { LoginService } from './login/login.service';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
+import { BrowserModule } from '@angular/platform-browser';
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    LoginService,
+    importProvidersFrom(BrowserModule),
+    provideHttpClient(withInterceptorsFromDi()),
     provideRouter(routes, withHashLocation()),
     provideAnimationsAsync(),
   ],
