@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using MongoDB.EntityFrameworkCore.Extensions;
+using PetShop.DTOs;
 using PetShop.Models;
 
 namespace APICatalogo.Context;

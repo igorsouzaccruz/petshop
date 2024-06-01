@@ -2,7 +2,7 @@
 {
     public class MongoDBSettings
     {
-        public string AltasURI { get; set; }
+        public string AtlasURI { get; set; }
         public string DatabaseName { get; set; }
     }
 }
