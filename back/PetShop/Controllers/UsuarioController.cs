@@ -111,30 +111,51 @@ namespace PetShop.Controllers
             return Ok();
         }
 
-        [HttpDelete]
-        public ActionResult Delete([FromBody] UsuarioDto usuario)
+        //[HttpDelete]
+        //public ActionResult Delete([FromBody] UsuarioDto usuario)
+        //{
+        //    if (usuario is null)
+        //    {
+        //        return BadRequest();
+        //    }
+
+        //    var usuarioParaDeletar = _usuarioService.GetUsuarioById(ObjectId.Parse(usuario.Id));
+
+        //    if (usuarioParaDeletar is null)
+        //    {
+        //        return BadRequest();
+        //    }
+
+        //    //usuarioParaDeletar.Nome = usuario.Nome;
+        //    //usuarioParaDeletar.Cpf = usuario.Cpf;
+        //    //usuarioParaDeletar.Email = usuario.Email;
+        //    //usuarioParaDeletar.Senha = usuario.Senha;
+
+
+        //    _usuarioService.DeleteUsuario(usuarioParaDeletar);
+
+        //    return Ok();
+        //}
+
+
+        [HttpDelete("{id}")]
+        public ActionResult Delete(string id)
         {
-            if (usuario is null)
+            if (string.IsNullOrEmpty(id))
             {
                 return BadRequest();
             }
 
-            var usuarioParaDeletar = _usuarioService.GetUsuarioById(ObjectId.Parse(usuario.Id));
+            var usuarioParaDeletar = _usuarioService.GetUsuarioById(ObjectId.Parse(id));
 
             if (usuarioParaDeletar is null)
             {
-                return BadRequest();
+                return NotFound();
             }
-
-            usuarioParaDeletar.Nome = usuario.Nome;
-            usuarioParaDeletar.Cpf = usuario.Cpf;
-            usuarioParaDeletar.Email = usuario.Email;
-            usuarioParaDeletar.Senha = usuario.Senha;
-
 
             _usuarioService.DeleteUsuario(usuarioParaDeletar);
 
-            return Ok();
+            return NoContent();
         }
 
         private string TratarCPFLGPT(string cpf)
