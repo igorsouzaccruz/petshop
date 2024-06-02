@@ -100,7 +100,11 @@ export class ListagemComponent {
     this.router.navigate([`/usuario/${id}`]);
   }
 
-  deletarUsuario(usuario: Usuario) {}
+  deletarUsuario(id: string) {
+    this.service.deletar(id).subscribe(() => {
+      this.pesquisar(); // Mesmo comando do meu outro projeto, atualizar lista
+    });
+  }
 }
 
 export interface IColunas {

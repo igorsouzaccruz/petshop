@@ -23,4 +23,10 @@ export class UsuarioService {
   public buscar(): Observable<any> {
     return this.http.get<any>(this.url);
   }
+
+  public deletar(id: string): Observable<void> {
+    return this.http.delete<void>(`${this.url}/${id}`).pipe(take(1));
+  }
+
+  
 }
