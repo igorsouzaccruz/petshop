@@ -7,6 +7,7 @@ namespace PetShop.Services
     {
         IEnumerable<Usuario> GetUsuarios();
         Usuario? GetUsuarioById(ObjectId id);
+        Usuario? GetUsuarioByCpf(string cpf);
         void AddUsuario(Usuario usuario);
         void UpdateUsuario(Usuario usuario);
         void DeleteUsuario(Usuario usuario);

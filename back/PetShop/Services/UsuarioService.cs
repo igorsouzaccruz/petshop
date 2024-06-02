@@ -69,6 +69,11 @@ namespace PetShop.Services
             return _context.Usuarios.FirstOrDefault(u => u.Id == id);
         }
 
+        public Usuario? GetUsuarioByCpf(string cpf)
+        {
+            return _context.Usuarios.FirstOrDefault(u => u.Cpf == cpf);
+        }
+
         public bool Login(LoginDto login)
         {
             var user = _context.Usuarios.FirstOrDefault(u => u.Email == login.Login && u.Senha == login.Senha);

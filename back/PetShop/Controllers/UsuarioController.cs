@@ -49,7 +49,28 @@ namespace PetShop.Controllers
                 Email = usuario.Email
             };
 
-            return Ok(usuario);
+            return Ok(usuarioModificado);
+        }
+
+        [HttpGet("{cpf}")]
+        public ActionResult<UsuarioDto> GetUsuario([FromRoute] string cpf)
+        {
+            var usuario = _usuarioService.GetUsuarioByCpf(cpf);
+
+            if (usuario is null)
+            {
+                return NotFound("CPF não encontrado...");
+            }
+
+            UsuarioDto usuarioModificado = new UsuarioDto
+            {
+                Id = usuario.Id.ToString(),
+                Nome = usuario.Nome,
+                Cpf = TratarCPFLGPT(usuario.Cpf),
+                Email = usuario.Email
+            };
+
+            return Ok(usuarioModificado);
         }
 
         [HttpPost]
