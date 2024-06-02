@@ -1,4 +1,5 @@
-# PETSHOP PROVA UNIFOR
+# PETSHOP
+## ATIVIDADE FINAL - DESENVOLVIMENTO PARA PLATAFORMA WEB
 
 # 1. Pré requisitos <a name="pre-requisitos"></a>
 
