@@ -38,3 +38,8 @@
   - Senha do banco
   - Default: example
 
+# COMO RODAR APÓS CONFIGURAR?
+  - Abrir a pasta **FRONT** rodar o comando no terminal **npm i** para instalar as dependencias. Ao finalizar digitar o comando **npx ng s** no terminal.
+  - Abrir a pasta **BACK** procurar o executavel do projeto e abrir no Visual Studio Community. Após abrir o projeto rodar o **WebApi**
+  - Para rodar o banco abrir a **Docker Desktop**. Após abrir a pasta **some-mongo** abrir o terminal e dar o comando **docker-compose up -d** após isso deve ser possível visualizar e acesasr o banco dento do Mongo Compass utilizando a URL disponibilizada.
+
