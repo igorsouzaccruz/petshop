@@ -1,32 +1,27 @@
-<mat-card>
+<mat-card class="mat-mdc-card mdc-card modal-card">
   <mat-card-header>
-    <mat-card-title>Usuário cadastrados no sistema</mat-card-title>
-
+    <mat-card-title>Usuários cadastrados no sistema</mat-card-title>
   </mat-card-header>
   <mat-card-content>
     <form [formGroup]="formulario">
       <mat-form-field class="full-width">
-        <mat-label>Cpf</mat-label>
-        <input type="cpf" matInput formControlName="cpf" placeholder="João Fulano">
+        <mat-label>CPF</mat-label>
+        <input type="text" matInput formControlName="cpf" placeholder="123.456.789-00">
       </mat-form-field>
     </form>
 
-    <button mat-raised-button color="primary" (click)="buscarPorCpf()">Buscar</button>
-    <button mat-stroked-button color="accent" (click)="limparFormulario()">Limpar</button>
+    <div class="button-container">
+      <button mat-raised-button color="primary" (click)="buscarPorCpf()">Buscar</button>
+      <button mat-stroked-button color="accent" (click)="limparFormulario()">Limpar</button>
+    </div>
   </mat-card-content>
 </mat-card>
 
-<table mat-table [dataSource]="fonteDados">
-  @for (coluna of colunas; track coluna) {
-  <ng-container [matColumnDef]="coluna.def">
-    <th mat-header-cell *matHeaderCellDef>
-      {{coluna.cabecalho}}
-    </th>
-    <td mat-cell *matCellDef="let row">
-      {{coluna.conteudo(row)}}
-    </td>
+<table mat-table [dataSource]="fonteDados" class="mat-elevation-z8">
+  <ng-container *ngFor="let coluna of colunas" [matColumnDef]="coluna.def">
+    <th mat-header-cell *matHeaderCellDef>{{coluna.cabecalho}}</th>
+    <td mat-cell *matCellDef="let row">{{coluna.conteudo(row)}}</td>
   </ng-container>
-  }
 
   <ng-container matColumnDef="acoes">
     <th mat-header-cell *matHeaderCellDef> Ações </th>
