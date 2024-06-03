@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import {
   FormBuilder,
@@ -11,7 +12,7 @@ import { MatIcon } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Usuario } from '../../core/entities/usuario';
 import { UsuarioService } from '../usuario.service';
 
@@ -27,6 +28,7 @@ import { UsuarioService } from '../usuario.service';
     MatTableModule,
     MatMenuModule,
     MatIcon,
+    CommonModule,
   ],
   templateUrl: './listagem.component.html',
   styleUrl: './listagem.component.scss',
@@ -35,6 +37,7 @@ export class ListagemComponent {
   formulario!: FormGroup;
   formBuilder = inject(FormBuilder);
   service = inject(UsuarioService);
+  route = inject(ActivatedRoute);
   router = inject(Router);
 
   public usuarios: Array<Usuario> = [];
@@ -97,7 +100,10 @@ export class ListagemComponent {
   }
 
   editarUsuario(id: number) {
-    this.router.navigate([`/usuario/${id}`]);
+    this.router.navigate([`/usuario/formulario`], {
+      queryParams: { id: id },
+      relativeTo: this.route,
+    });
   }
 
   deletarUsuario(id: string) {

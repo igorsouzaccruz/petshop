@@ -52,7 +52,7 @@ namespace PetShop.Controllers
             return Ok(usuarioModificado);
         }
 
-        [HttpGet("{cpf}")]
+        [HttpGet("cpf/{cpf}")]
         public ActionResult<UsuarioDto> GetUsuario([FromRoute] string cpf)
         {
             var usuario = _usuarioService.GetUsuarioByCpf(cpf);

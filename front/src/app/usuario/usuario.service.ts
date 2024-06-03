@@ -17,16 +17,19 @@ export class UsuarioService {
   }
 
   public buscarPorCpf(cpf: string): Observable<any> {
-    return this.http.get<any>(this.url + '/' + cpf).pipe(take(1));
+    return this.http.get<any>(this.url + '/cpf/' + cpf).pipe(take(1));
   }
 
   public buscar(): Observable<any> {
     return this.http.get<any>(this.url);
   }
 
+  public buscarPorId(id: string): Observable<Usuario> {
+    debugger;
+    return this.http.get<Usuario>(`${this.url}/${id}`).pipe(take(1));
+  }
+
   public deletar(id: string): Observable<void> {
     return this.http.delete<void>(`${this.url}/${id}`).pipe(take(1));
   }
-
-  
 }

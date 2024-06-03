@@ -1,11 +1,18 @@
+import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
-import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormGroup,
+  FormsModule,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { ActivatedRoute, Router } from '@angular/router';
 import { UsuarioService } from '../usuario.service';
-import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-formulario',
@@ -20,33 +27,48 @@ import { CommonModule } from '@angular/common';
     MatButtonModule,
   ],
   templateUrl: './formulario.component.html',
-  styleUrl: './formulario.component.scss'
+  styleUrl: './formulario.component.scss',
 })
 export class FormularioComponent {
   formulario!: FormGroup;
   formBuilder = inject(FormBuilder);
   service = inject(UsuarioService);
+  router = inject(Router);
+  activatedRoute = inject(ActivatedRoute);
+
+  public modoEdicao!: boolean;
 
   ngOnInit(): void {
     this.criarFormulario();
+
+    this.activatedRoute.data.subscribe(({ usuario }) => {
+      this.modoEdicao = !!usuario;
+      this.formulario.patchValue(usuario);
+    });
   }
 
   private criarFormulario(): void {
     this.formulario = this.formBuilder.group({
       nome: ['', [Validators.required]],
-      cpf: ['', [Validators.required, Validators.maxLength(11), Validators.minLength(11)]],
+      cpf: [
+        '',
+        [
+          Validators.required,
+          Validators.maxLength(11),
+          Validators.minLength(11),
+        ],
+      ],
       senha: ['', [Validators.required]],
       email: ['', [Validators.required, Validators.email]],
     });
   }
 
   public salvar() {
-    //console.log(this.formulario.value);
-    //debugger;
-    
     this.service.salvar(this.formulario.value).subscribe({
-      next: (respota) => console.log(respota),
-      error: (erro) => console.log('error',erro),
+      next: (respota) => {
+        console.log(respota), this.router.navigate([`/usuario`]);
+      },
+      error: (erro) => console.log('error', erro),
       complete: () => {
         console.log('fim');
       },
@@ -57,7 +79,4 @@ export class FormularioComponent {
   public limparFormulario(): void {
     this.formulario.reset();
   }
-
-
-
 }
