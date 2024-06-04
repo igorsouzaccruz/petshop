@@ -1,16 +1,15 @@
 /* Estilos para o contêiner do cartão de usuários */
 .mat-mdc-card.mdc-card.modal-card {
-  background-color: rgba(49, 0, 77, 0.6); /* Cor de fundo escura */
-  color: #fff; /* Texto branco para contraste */
-  max-width: 80%;
+  max-width: 90%;
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-top: 2%;
   border-radius: 8px;
   box-shadow: 0 0 20px rgba(201, 57, 57, 0.3);
 }
 
 /* Estilos para o cabeçalho do cartão */
 mat-card-header {
-  background-color: #6c5b7b;
-  color: white;
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
 }
@@ -19,7 +18,7 @@ mat-card-header {
 mat-card-title {
   font-size: 24px;
   font-weight: bold;
-  font-family: 'Roboto', sans-serif; /* Certifique-se de que a fonte está importada */
+  font-family: "Roboto", sans-serif; /* Certifique-se de que a fonte está importada */
 }
 
 /* Estilos para os campos de formulário */
@@ -29,7 +28,7 @@ mat-form-field {
 }
 
 .mat-form-field.mat-focused .mat-form-field-label {
-  color: #1976d2;
+  // color: #1976d2;
 }
 
 /* Estilos para o contêiner de botões */
@@ -52,24 +51,11 @@ button:hover {
   cursor: pointer;
 }
 
-mat-raised-button {
-  background-color: #39ff14; /* Cor verde */
-  color: white;
-}
-
 mat-raised-button:hover {
-  background-color: #2ecc71; /* Cor verde mais escura */
   box-shadow: 0 0 15px rgba(34, 184, 221, 0.5);
 }
 
-mat-stroked-button {
-  background-color: transparent;
-  border-color: #e74c3c; /* Cor vermelha */
-  color: #e74c3c;
-}
-
 mat-stroked-button:hover {
-  background-color: #c0392b;
   color: white;
   box-shadow: 0 0 15px rgba(218, 120, 9, 0.5);
 }
