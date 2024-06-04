@@ -49,6 +49,7 @@ export class FormularioComponent {
 
   private criarFormulario(): void {
     this.formulario = this.formBuilder.group({
+      id: [null],
       nome: ['', [Validators.required]],
       cpf: [
         '',
@@ -64,6 +65,9 @@ export class FormularioComponent {
   }
 
   public salvar() {
+    if (this.formulario.invalid) {
+      return alert('formulario invalido');
+    }
     this.service.salvar(this.formulario.value).subscribe({
       next: (respota) => {
         console.log(respota), this.router.navigate([`/usuario`]);
@@ -74,6 +78,11 @@ export class FormularioComponent {
       },
     });
     this.limparFormulario();
+  }
+
+  public voltar() {
+    this.router.navigate([`/usuario`]);
+    this.formulario.reset();
   }
 
   public limparFormulario(): void {

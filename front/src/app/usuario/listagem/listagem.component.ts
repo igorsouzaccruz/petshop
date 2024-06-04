@@ -99,6 +99,10 @@ export class ListagemComponent {
       });
   }
 
+  public cadastrar() {
+    this.router.navigate([`/usuario/formulario`]);
+  }
+
   editarUsuario(id: number) {
     this.router.navigate([`/usuario/formulario`], {
       queryParams: { id: id },

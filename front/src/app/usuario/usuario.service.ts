@@ -13,6 +13,10 @@ export class UsuarioService {
   constructor(public http: HttpClient) {}
 
   public salvar(usuario: Usuario) {
+    debugger;
+    if (usuario.id) {
+      return this.http.put<Usuario>(this.url, usuario);
+    }
     return this.http.post<Usuario>(this.url, usuario);
   }
 

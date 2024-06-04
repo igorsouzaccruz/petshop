@@ -13,6 +13,7 @@ import { MatFormField } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 import { Login } from '../core/entities/login';
 import { LoginService } from './login.service';
 
@@ -41,11 +42,12 @@ export class LoginComponent {
   constructor(
     private fb: FormBuilder,
     private service: LoginService,
-    private _snackBar: MatSnackBar
+    private _snackBar: MatSnackBar,
+    private router: Router
   ) {
     this.loginForm = this.fb.group({
-      username: ['', Validators.required],
-      password: ['', Validators.required],
+      username: [null, Validators.required],
+      password: [null, Validators.required],
     });
   }
 
@@ -58,7 +60,8 @@ export class LoginComponent {
 
     this.service.login(login).subscribe((result) => {
       if (result) {
-        this.openSnackBar('Login bem-sucedido!');
+        this.openSnackBar('Login bem-sucedido!', 'Fechar');
+        this.router.navigate([`/usuario`]);
         this.errorMessage = null;
       } else {
         this.errorMessage = 'Usuário ou senha incorretos.';
@@ -66,7 +69,9 @@ export class LoginComponent {
     });
   }
 
-  openSnackBar(message: string) {
-    this._snackBar.open(message);
+  openSnackBar(message: string, action: string) {
+    this._snackBar.open(message, action, {
+      duration: 3000, // Duração em milissegundos
+    });
   }
 }
