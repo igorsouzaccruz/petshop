@@ -12,6 +12,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Usuario } from '../../core/entities/usuario';
 import { UsuarioService } from '../usuario.service';
 
 @Component({
@@ -35,6 +36,7 @@ export class FormularioComponent {
   service = inject(UsuarioService);
   router = inject(Router);
   activatedRoute = inject(ActivatedRoute);
+  private usuarioEdicao: Usuario = new Usuario();
 
   public modoEdicao!: boolean;
 
@@ -43,13 +45,13 @@ export class FormularioComponent {
 
     this.activatedRoute.data.subscribe(({ usuario }) => {
       this.modoEdicao = !!usuario;
+      this.usuarioEdicao = usuario;
       this.formulario.patchValue(usuario);
     });
   }
 
   private criarFormulario(): void {
     this.formulario = this.formBuilder.group({
-      id: [null],
       nome: ['', [Validators.required]],
       cpf: [
         '',
@@ -68,7 +70,12 @@ export class FormularioComponent {
     if (this.formulario.invalid) {
       return alert('formulario invalido');
     }
-    this.service.salvar(this.formulario.value).subscribe({
+    var usuario: Usuario = this.formulario.value;
+    if (this.modoEdicao) {
+      usuario.id = this.usuarioEdicao.id;
+    }
+
+    this.service.salvar(usuario).subscribe({
       next: (respota) => {
         console.log(respota), this.router.navigate([`/usuario`]);
       },
